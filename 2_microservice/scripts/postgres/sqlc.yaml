@@ -1,0 +1,7 @@
+version: "1"
+packages:
+  - name: "sqlc"
+    path: "../../internal/repository/sqlc_generated"
+    queries: "./query/"
+    schema: "./migration/"
+    engine: "postgresql"

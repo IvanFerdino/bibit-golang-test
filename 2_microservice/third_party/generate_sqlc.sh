@@ -1,0 +1,1 @@
+cd ../scripts/postgres/ && sqlc generate
