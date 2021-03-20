@@ -13,9 +13,12 @@ to generate .go from sqlc:
 1. ./generate_sqlc.sh
 
 to run:
-edit consts in main.go //not using env variable
-then run or build main.go
+edit consts in cmd/run_server/main.go //not using env variable
+then run or build cmd/run_server/main.go
 server started at port: 8320 (rest), 8321 (grpc)
+
+to try grpc client:
+run or build cmd/run_grpc_client/main.go
 
 unit test:
 unit test available at service layer service_test.go
