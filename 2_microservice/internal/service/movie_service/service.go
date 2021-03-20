@@ -16,10 +16,11 @@ type Service struct {
 	v1.UnimplementedMovieServiceServer
 }
 
-func New(movieRepo repository.MovieRepository, logRepo repository.LogRepository) *Service {
+func New(movieRepo repository.MovieRepository, logRepo repository.LogRepository, vldtr *validator.Validate) *Service {
 	return &Service{
 		movieRepo:                       movieRepo,
 		logRepo:                         logRepo,
+		validator:                       vldtr,
 	}
 }
 

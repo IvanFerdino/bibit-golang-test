@@ -8,3 +8,5 @@ to generate pb.go:
 5. ./generate_pb_go.sh
 
 
+1. localhost:8320/movie/search?keyword=Batman&page=1
+   localhost:8320/movie/detail?movie_id=tt0372784

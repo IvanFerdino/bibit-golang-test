@@ -14,7 +14,7 @@ type Movie struct {
 }
 
 type MovieSearchResponse struct {
-	Movies []*Movie `json:search`
+	Movies []*Movie `json:"Search"`
 	TotalResult string   `json:"totalResults"`
 	Response    string   `json:"Response"`
 }

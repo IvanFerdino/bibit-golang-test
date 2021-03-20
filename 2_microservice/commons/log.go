@@ -7,10 +7,10 @@ import (
 
 func LogError(msg string) {
 	log.SetOutput(os.Stderr)
-	log.Printf("[INFO] "+msg)
+	log.Printf("[ERROR] "+msg)
 }
 
 func LogInfo(msg string) {
 	log.SetOutput(os.Stdout)
-	log.Printf("[ERROR] "+msg)
+	log.Printf("[INFO] "+msg)
 }

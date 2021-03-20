@@ -27,15 +27,9 @@ func (repo *LogRepo) LogApiCall(ctx context.Context, wg *sync.WaitGroup,data *mo
 	defer cancel()
 
 	query:=sqlc.New(repo.db)
-	_,err:=query.InsertLog(ctx,sqlc.InsertLogParams{
-		HttpRequest: sql.NullString{
-			String: data.Request,
-			Valid:  true,
-		},
-		Type:        sql.NullString{
-			String: data.Type,
-			Valid:  true,
-		},
+	_,err:=query.InsertLog(ctx,sql.NullString{
+		String: data.Request,
+		Valid:  true,
 	})
 
 	if err!=nil{

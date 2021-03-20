@@ -9,6 +9,8 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"github.com/go-playground/validator/v10"
+	_ "github.com/lib/pq"
 	"os"
 	"time"
 )
@@ -23,7 +25,7 @@ func LoadDb(i *model.InitModel) *sql.DB {
 		commons.LogError(fmt.Sprintf("Cant open db connection %v",err))
 		os.Exit(1) //kill service if cant connect ot db
 	}
-
+	commons.LogInfo(fmt.Sprintf("Db connection opened: %v\n",connectionString))
 	db.SetMaxIdleConns(3) //should be < maxopenconns
 	db.SetMaxOpenConns(50) //max connection for this db conn
 	db.SetConnMaxIdleTime(5*time.Minute) //max time connection bisa idle
@@ -45,6 +47,7 @@ func pingDb(db *sql.DB){
 		commons.LogError(fmt.Sprintf("Cant ping db connection %v",err))
 		os.Exit(1)
 	}
+	commons.LogInfo("Db connected")
 
 	t:=30*time.Second
 	commons.LogInfo(fmt.Sprintf("KEEP ALIVE DB CONNECTION EVERY %v second\n",t))
@@ -61,7 +64,7 @@ func pingDb(db *sql.DB){
 				commons.LogError(fmt.Sprintf("KEEP ALIVE | Cant ping db connection %v",err))
 				os.Exit(1)
 			}
-			commons.LogInfo(fmt.Sprintf("KEEP ALIVE DB CONNECTION"))
+			commons.LogInfo(fmt.Sprintf("KEEP ALIVE DB CONNECTION | stats: %+v",db.Stats()))
 		}
 	}()
 }
@@ -72,7 +75,8 @@ func InitService(initData *model.InitModel) (*movie_service.Service,*sql.DB) {
 	movieRepo:=movie_repository.NewOmbd(initData.ApiUrl,initData.ApiKey)
 	logRepo:=log_repository.NewPostgre(postgredb)
 
-	movieSvc:=movie_service.New(movieRepo,logRepo)
+	vldtr:=validator.New()
+	movieSvc:=movie_service.New(movieRepo,logRepo,vldtr)
 
 	//3. return initialized services
 	return movieSvc,postgredb

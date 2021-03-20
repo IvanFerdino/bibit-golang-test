@@ -6,6 +6,7 @@ import (
 	"IvanFerdino/bibit-golang-test/internal/server/rest_server"
 	"IvanFerdino/bibit-golang-test/internal/service"
 	"fmt"
+	"log"
 	"os"
 	"sync"
 )
@@ -21,6 +22,7 @@ const (
 )
 
 func main() {
+	log.SetOutput(os.Stdout)
 	commons.LogInfo(fmt.Sprintf("in this case i will run both server from single binary/main.go.\n but it can be splitted into two main.go. and run both binary (rest server and grpc server)"))
 	movieSvc,db:=service.InitService(&model.InitModel{
 		ApiUrl:     APIURL,
