@@ -16,11 +16,11 @@ import (
 const (
 	APIURL = "http://www.omdbapi.com"
 	APIKEY = "faf7e5bb"
-	DBHOST = ""
-	DBUSERNAME = ""
-	DBPASSWORD = ""
-	DBPORT = ""
-	DBSCHEMA = ""
+	DBHOST = "" //example "0.0.0.0"
+	DBUSERNAME = "" //example "iniusernamesaya"
+	DBPASSWORD = "" //example "passwordku"
+	DBPORT = ""  //example "5432"
+	DBSCHEMA = "" //schema name
 )
 
 func main() {
