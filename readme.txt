@@ -18,6 +18,7 @@ create unique index tb_search_log_id_uindex
 
 2. edit consts in cmd/run_server/main.go //not using env variable
    then run or build cmd/run_server/main.go
+   or make build, then execute ./build/movie-service
    server started at port: 8320 (rest), 8321 (grpc)
 
 ==================================================================================
