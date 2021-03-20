@@ -3,6 +3,7 @@ module IvanFerdino/bibit-golang-test
 go 1.16
 
 require (
+	github.com/go-playground/validator/v10 v10.4.1
 	github.com/golang/protobuf v1.5.1 // indirect
 	golang.org/x/net v0.0.0-20210316092652-d523dce5a7f4 // indirect
 	golang.org/x/sys v0.0.0-20210319071255-635bc2c9138d // indirect

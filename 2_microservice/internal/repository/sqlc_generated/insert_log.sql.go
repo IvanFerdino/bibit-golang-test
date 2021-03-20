@@ -9,24 +9,12 @@ import (
 )
 
 const insertLog = `-- name: InsertLog :one
-insert into tb_search_log(http_request, type, code, error)
-VALUES ($1,$2,$3,$4) returning id
+insert into tb_search_log(http_request)
+VALUES ($1) returning id
 `
 
-type InsertLogParams struct {
-	HttpRequest sql.NullString
-	Type        sql.NullString
-	Code        sql.NullInt32
-	Error       sql.NullString
-}
-
-func (q *Queries) InsertLog(ctx context.Context, arg InsertLogParams) (int32, error) {
-	row := q.db.QueryRowContext(ctx, insertLog,
-		arg.HttpRequest,
-		arg.Type,
-		arg.Code,
-		arg.Error,
-	)
+func (q *Queries) InsertLog(ctx context.Context, httpRequest sql.NullString) (int32, error) {
+	row := q.db.QueryRowContext(ctx, insertLog, httpRequest)
 	var id int32
 	err := row.Scan(&id)
 	return id, err

@@ -7,6 +7,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"sync"
 	"time"
 )
 
@@ -21,14 +22,9 @@ func NewPostgre(db *sql.DB) *LogRepo{
 }
 
 
-func (repo *LogRepo) LogApiCall(ctx context.Context,data *model.ApiCall) {
+func (repo *LogRepo) LogApiCall(ctx context.Context, wg *sync.WaitGroup,data *model.ApiCall) {
 	ctx,cancel:=context.WithTimeout(ctx,3*time.Second)
 	defer cancel()
-
-	errMsgValid:=false
-	if data.ErrorMsg == nil {
-		errMsgValid=true
-	}
 
 	query:=sqlc.New(repo.db)
 	_,err:=query.InsertLog(ctx,sqlc.InsertLogParams{
@@ -40,17 +36,11 @@ func (repo *LogRepo) LogApiCall(ctx context.Context,data *model.ApiCall) {
 			String: data.Type,
 			Valid:  true,
 		},
-		Code:        sql.NullInt32{
-			Int32: int32(data.Code),
-			Valid: true,
-		},
-		Error: sql.NullString{
-			String: *data.ErrorMsg,
-			Valid:  errMsgValid,
-		},
 	})
 
 	if err!=nil{
 		commons.LogError(fmt.Sprintf("Error insert log: %v\n",err))
 	}
+
+	wg.Done()
 }

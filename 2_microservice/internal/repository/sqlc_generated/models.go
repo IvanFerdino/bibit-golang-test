@@ -9,8 +9,5 @@ import (
 type TbSearchLog struct {
 	ID          int32
 	HttpRequest sql.NullString
-	Type        sql.NullString
-	Code        sql.NullInt32
 	Timestamp   sql.NullTime
-	Error       sql.NullString
 }

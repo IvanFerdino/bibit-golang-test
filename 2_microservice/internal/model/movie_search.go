@@ -2,7 +2,7 @@ package model
 
 type MovieSearchRequest struct {
 	Keyword string `json:"keyword" validate:"required"`
-	Page    int32  `json:"page" validate:"required"`
+	Page    int  `json:"page" validate:"required"`
 }
 
 type Movie struct {
