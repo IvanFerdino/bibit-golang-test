@@ -53,7 +53,7 @@ func detail(cl *grpcclient.ClientConnection) (*v1.MovieDetailResponse,error){
 func search(cl *grpcclient.ClientConnection) (*v1.MovieSearchResponse,error){
 	param:=&v1.MovieSearchRequest{
 		Keyword: "Batman",
-		Page:    2,
+		Page:    1,
 	}
 
 	//from pkg/grpcclient package

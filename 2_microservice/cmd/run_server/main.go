@@ -55,10 +55,8 @@ func main() {
 	}()
 
 	grpcsrvr:= grpc_server.New(movieSvc,"8321")
-	ctx,cancel:=context.WithCancel(context.Background())
-	defer cancel()
 	go func() {
-		err := grpcsrvr.Run(ctx)
+		err := grpcsrvr.Run(context.Background())
 		if err != nil {
 			commons.LogError(fmt.Sprintf("%v",err))
 			wg.Done()
