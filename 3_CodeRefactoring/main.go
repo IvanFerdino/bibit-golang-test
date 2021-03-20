@@ -18,7 +18,7 @@ func findFirstStringInBracket(str string) string {
 		indexOpeningBracket := strings.Index(str,"(")
 		indexClosingBracket := strings.Index(str,")")
 
-		if (indexClosingBracket >indexOpeningBracket) && (indexOpeningBracket >=0 && indexClosingBracket >= 0) {
+		if (indexClosingBracket > indexOpeningBracket) && (indexOpeningBracket >=0 && indexClosingBracket >= 0) {
 			runes := []rune(str)
 			return string(runes[indexOpeningBracket+1:indexClosingBracket])
 		}
