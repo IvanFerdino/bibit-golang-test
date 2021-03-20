@@ -1,12 +1,15 @@
 package movie_service
 
 import (
+	"IvanFerdino/bibit-golang-test/commons"
 	"IvanFerdino/bibit-golang-test/internal/model"
 	"IvanFerdino/bibit-golang-test/internal/repository"
 	v1 "IvanFerdino/bibit-golang-test/pkg/grpc/v1"
 	"context"
+	"fmt"
 	"github.com/go-playground/validator/v10"
 	"sync"
+	"time"
 )
 
 type Service struct {
@@ -47,11 +50,13 @@ func (s *Service) Search(ctx context.Context, request *v1.MovieSearchRequest) (*
 		})
 	}
 
-	return &v1.MovieSearchResponse{
+	r:=&v1.MovieSearchResponse{
 		Movies:      movies,
 		TotalResult: res.TotalResult,
 		Response:    res.Response,
-	}, nil
+	}
+	commons.LogInfo(fmt.Sprintf("[GRPC] SEARCH: time:%v result: %+v\n",time.Now(),r))
+	return r, nil
 }
 
 func (s *Service) Detail(ctx context.Context, request *v1.MovieDetailRequest) (*v1.MovieDetailResponse, error){
@@ -72,8 +77,7 @@ func (s *Service) Detail(ctx context.Context, request *v1.MovieDetailRequest) (*
 			Value:  d.Value,
 		})
 	}
-
-	return &v1.MovieDetailResponse{
+	r:=&v1.MovieDetailResponse{
 		Title:      res.Title,
 		Year:       res.Year,
 		Rated:      res.Rated,
@@ -99,7 +103,9 @@ func (s *Service) Detail(ctx context.Context, request *v1.MovieDetailRequest) (*
 		Production: res.Production,
 		Website:    res.Website,
 		Response:   res.Response,
-	}, nil
+	}
+	commons.LogInfo(fmt.Sprintf("[GRPC] DETAIL: time:%v result: %+v\n",time.Now(),r))
+	return r, nil
 }
 
 
