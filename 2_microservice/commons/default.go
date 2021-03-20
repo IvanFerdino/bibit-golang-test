@@ -18,7 +18,7 @@ func (e *CustomApiError) Error() string {
 	return fmt.Sprintf("[%v] %v ",e.Code,e.Message)
 }
 
-func ApiSuccessResponse(result interface{}, id string) CustomApiError {
+func ApiSuccessResponse(result interface{}) CustomApiError {
 	return CustomApiError{Result: result, Message: "Success", Code:http.StatusOK}
 }
 

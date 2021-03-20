@@ -1,3 +1,5 @@
+# github.com/dgrijalva/jwt-go v3.2.0+incompatible
+github.com/dgrijalva/jwt-go
 # github.com/go-playground/locales v0.13.0
 github.com/go-playground/locales
 github.com/go-playground/locales/currency
@@ -13,14 +15,37 @@ github.com/golang/protobuf/ptypes
 github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/duration
 github.com/golang/protobuf/ptypes/timestamp
+# github.com/labstack/echo/v4 v4.2.1
+## explicit
+github.com/labstack/echo/v4
+github.com/labstack/echo/v4/middleware
+# github.com/labstack/gommon v0.3.0
+github.com/labstack/gommon/bytes
+github.com/labstack/gommon/color
+github.com/labstack/gommon/log
+github.com/labstack/gommon/random
 # github.com/leodido/go-urn v1.2.0
 github.com/leodido/go-urn
-# golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+# github.com/mattn/go-colorable v0.1.7
+github.com/mattn/go-colorable
+# github.com/mattn/go-isatty v0.0.12
+github.com/mattn/go-isatty
+# github.com/tylerb/graceful v1.2.15
+## explicit
+github.com/tylerb/graceful
+# github.com/valyala/bytebufferpool v1.0.0
+github.com/valyala/bytebufferpool
+# github.com/valyala/fasttemplate v1.2.1
+github.com/valyala/fasttemplate
+# golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
+golang.org/x/crypto/acme
+golang.org/x/crypto/acme/autocert
 golang.org/x/crypto/sha3
 # golang.org/x/net v0.0.0-20210316092652-d523dce5a7f4
 ## explicit
 golang.org/x/net/http/httpguts
 golang.org/x/net/http2
+golang.org/x/net/http2/h2c
 golang.org/x/net/http2/hpack
 golang.org/x/net/idna
 golang.org/x/net/internal/timeseries
@@ -36,6 +61,8 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
+# golang.org/x/time v0.0.0-20201208040808-7e3f01d25324
+golang.org/x/time/rate
 # google.golang.org/genproto v0.0.0-20210319143718-93e7006c17a6
 ## explicit
 google.golang.org/genproto/googleapis/rpc/status

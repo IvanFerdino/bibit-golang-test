@@ -17,9 +17,10 @@ type MovieSearchRepo struct {
 	key string
 }
 
-func NewOmbd(url string) *MovieSearchRepo{
+func NewOmbd(url string,key string) *MovieSearchRepo{
 	return &MovieSearchRepo{
 		url: url,
+		key: key,
 	}
 }
 
