@@ -41,13 +41,13 @@ func New(grpchost string, grpcport string) *ClientConnection {
 
 func Search(cl *ClientConnection,param *v1.MovieSearchRequest)(*v1.MovieSearchResponse,error) {
 	response, err := cl.movieServiceCl.Search(cl.ctx, param)
-	cl.cancel()
+	cl.cancel() //close cl
 	return response, err
 }
 
 func Detail(cl *ClientConnection,param *v1.MovieDetailRequest)(*v1.MovieDetailResponse,error) {
 	response, err := cl.movieServiceCl.Detail(cl.ctx, param)
-	cl.cancel()
+	cl.cancel()//close cl
 	return response, err
 }
 //etc, implement others
