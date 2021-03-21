@@ -22,6 +22,15 @@ func NewSvc(ctx context.Context, service *Service) *movieService{
 	}
 }
 
+func (s *movieService) doLog(req string) *sync.WaitGroup{
+	wg:=new(sync.WaitGroup)
+	wg.Add(1)
+	go s.service.LogCall(s.Ctx,wg,&model.ApiCall{
+		Request: req,
+	})
+	return wg
+}
+
 func (s *movieService) SearchImpl(param *model.MovieSearchRequest) (*model.MovieSearchResponse,error) {
 	err := s.service.validator.Struct(param)
 	if err != nil {
@@ -30,12 +39,7 @@ func (s *movieService) SearchImpl(param *model.MovieSearchRequest) (*model.Movie
 	}
 
 	req:=s.service.MovieSearchRequest(param.Keyword,param.Page)
-
-	wg:=new(sync.WaitGroup)
-	wg.Add(1)
-	go s.service.LogCall(s.Ctx,wg,&model.ApiCall{
-		Request: req,
-	})
+	wg:=s.doLog(req)
 
 	res,err:=s.service.MovieSearch(s.Ctx,param.Keyword,param.Page)
 	if err!=nil{
@@ -54,12 +58,7 @@ func (s *movieService) DetailImpl(param *model.MovieDetailRequest) (*model.Movie
 	}
 
 	req:=s.service.MovieDetailRequest(param.MovieId)
-
-	wg:=new(sync.WaitGroup)
-	wg.Add(1)
-	go s.service.LogCall(s.Ctx,wg,&model.ApiCall{
-		Request: req,
-	})
+	wg:=s.doLog(req)
 
 	res,err:=s.service.MovieDetail(s.Ctx,param.MovieId)
 	if err!=nil{

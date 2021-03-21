@@ -1,3 +1,5 @@
+# github.com/davecgh/go-spew v1.1.0
+github.com/davecgh/go-spew/spew
 # github.com/dgrijalva/jwt-go v3.2.0+incompatible
 github.com/dgrijalva/jwt-go
 # github.com/go-playground/locales v0.13.0
@@ -8,6 +10,9 @@ github.com/go-playground/universal-translator
 # github.com/go-playground/validator/v10 v10.4.1
 ## explicit
 github.com/go-playground/validator/v10
+# github.com/golang/mock v1.5.0
+## explicit
+github.com/golang/mock/gomock
 # github.com/golang/protobuf v1.5.1
 ## explicit
 github.com/golang/protobuf/proto
@@ -24,17 +29,24 @@ github.com/labstack/gommon/bytes
 github.com/labstack/gommon/color
 github.com/labstack/gommon/log
 github.com/labstack/gommon/random
-# github.com/leodido/go-urn v1.2.0
+# github.com/leodido/go-urn v1.2.1
+## explicit
 github.com/leodido/go-urn
 # github.com/lib/pq v1.10.0
 ## explicit
 github.com/lib/pq
 github.com/lib/pq/oid
 github.com/lib/pq/scram
-# github.com/mattn/go-colorable v0.1.7
+# github.com/mattn/go-colorable v0.1.8
+## explicit
 github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.12
 github.com/mattn/go-isatty
+# github.com/pmezard/go-difflib v1.0.0
+github.com/pmezard/go-difflib/difflib
+# github.com/stretchr/testify v1.6.1
+## explicit
+github.com/stretchr/testify/assert
 # github.com/tylerb/graceful v1.2.15
 ## explicit
 github.com/tylerb/graceful
@@ -42,7 +54,8 @@ github.com/tylerb/graceful
 github.com/valyala/bytebufferpool
 # github.com/valyala/fasttemplate v1.2.1
 github.com/valyala/fasttemplate
-# golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
+# golang.org/x/crypto v0.0.0-20210317152858-513c2a44f670
+## explicit
 golang.org/x/crypto/acme
 golang.org/x/crypto/acme/autocert
 golang.org/x/crypto/sha3
@@ -55,7 +68,7 @@ golang.org/x/net/http2/hpack
 golang.org/x/net/idna
 golang.org/x/net/internal/timeseries
 golang.org/x/net/trace
-# golang.org/x/sys v0.0.0-20210319071255-635bc2c9138d
+# golang.org/x/sys v0.0.0-20210320140829-1e4c9ba3b0c4
 ## explicit
 golang.org/x/sys/cpu
 golang.org/x/sys/internal/unsafeheader
@@ -66,7 +79,8 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
-# golang.org/x/time v0.0.0-20201208040808-7e3f01d25324
+# golang.org/x/time v0.0.0-20210220033141-f8bda1e9f3ba
+## explicit
 golang.org/x/time/rate
 # google.golang.org/genproto v0.0.0-20210319143718-93e7006c17a6
 ## explicit
@@ -149,3 +163,5 @@ google.golang.org/protobuf/types/descriptorpb
 google.golang.org/protobuf/types/known/anypb
 google.golang.org/protobuf/types/known/durationpb
 google.golang.org/protobuf/types/known/timestamppb
+# gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+gopkg.in/yaml.v3
