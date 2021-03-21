@@ -15,8 +15,7 @@ VALUES (1,'Ali',2),(2,'Budi',0),(3,'Cecep',1);
 
 
 SELECT
-tbu.id "ID",
-tbu.user_name "UserName",
-(select u.user_name from tb_user u where u.id = tbu.parent)
+    tbu.id "ID",
+    tbu.user_name "UserName",
+    (select u.user_name from tb_user u where u.id = tbu.parent) "ParentUserName"
 FROM tb_user tbu;
-
